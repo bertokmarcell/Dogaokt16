@@ -1,17 +1,15 @@
 import { useState } from "react";
 import { TANULOSZOBAK } from "../../adat";
 import type { SZOBATIPUS } from "../../adat";
-import './kartya.css'
 export interface KARTYAPROPS{
     elem:SZOBATIPUS,
-    setfoglalthelyek:(index:number,foglalt_helyek:number)=>void;
 }
-export default function Kartya({elem,setfoglalthelyek}:KARTYAPROPS){
-    function foglalhely(){
-        const [index, setfoglalthelyek] = useState(elem.foglalt_helyek)
-        /*setfoglalthelyek()*/
-        elem.foglalt_helyek+1;
-    }
+export default function Kartya({elem}:KARTYAPROPS){
+
+        const [foglalHelyek, setfoglalthelyek] = useState(elem.foglalt_helyek)
+        const foglalohely = ()=>{
+            setfoglalthelyek((prev)=>prev+1)
+        };
     return(
         <>
         <div className="egykartya">
@@ -22,9 +20,7 @@ export default function Kartya({elem,setfoglalthelyek}:KARTYAPROPS){
             <span>{elem.foglalt_helyek}</span>
         </div>
         <div>
-            <button className="pluszfoglalthely" onClick={foglalhely/**/}>
-                +
-            </button>
+            <button className="pluszfoglalthely" onClick={()=>foglalHelyek}>+</button>
         </div>
         </>
     )
