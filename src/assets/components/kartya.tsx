@@ -5,9 +5,11 @@ export interface KARTYAPROPS{
     elem:SZOBATIPUS,
     setfoglalthelyek:(index:number,foglalt_helyek:number)=>void;
 }
-export default function kartya({elem}:KARTYAPROPS){
+export default function Kartya({elem,setfoglalthelyek}:KARTYAPROPS){
     function foglalhely(){
-        setfoglalthelyek()
+        const [index, setfoglalthelyek] = useState(elem.foglalt_helyek)
+        /*setfoglalthelyek()*/
+        elem.foglalt_helyek+1;
     }
     return(
         <>
@@ -19,7 +21,7 @@ export default function kartya({elem}:KARTYAPROPS){
             <span>{elem.foglalt_helyek}</span>
         </div>
         <div>
-            <button className="pluszfoglalthely" onClick={foglalhely}>
+            <button className="pluszfoglalthely" onClick={foglalhely/**/}>
                 +
             </button>
         </div>
