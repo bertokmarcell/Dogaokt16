@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TANULOSZOBAK } from "../../adat";
 import type { SZOBATIPUS } from "../../adat";
+import './kartya.css'
 export interface KARTYAPROPS{
     elem:SZOBATIPUS,
     setfoglalthelyek:(index:number,foglalt_helyek:number)=>void;
